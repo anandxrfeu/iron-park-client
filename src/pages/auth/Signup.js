@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiService from "../../services/api.service";
+import MainWrapper from "../../components/layout/MainWrapper";
 
 function Signup(props) {
   const [state, setState] = useState({ name: "", password: "", email: "" });
@@ -34,8 +35,8 @@ function Signup(props) {
 
   return (
 
-    <div className="main-container">
-      <div className="main-wrapper">
+    <MainWrapper>
+
         <div className="main-left">Map</div>
         <div className="main-right">
           <div className="form-controls">
@@ -88,12 +89,7 @@ function Signup(props) {
           </div>
           <footer>Built by Anand & Christian</footer>
         </div>
-      </div>
-    </div>
-
-
-
-    
+    </MainWrapper>    
   );
 }
 

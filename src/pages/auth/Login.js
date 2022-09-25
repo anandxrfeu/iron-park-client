@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiService from "../../services/api.service";
-
 import { AuthContext } from "../../contexts/authContext";
+import MainWrapper from "../../components/layout/MainWrapper";
 
 function Login(props) {
   const authContext = useContext(AuthContext);
@@ -44,8 +44,7 @@ function Login(props) {
 
   return (
 
-    <div className="main-container">
-      <div className="main-wrapper">
+    <MainWrapper>
         <div className="main-left">Map</div>
         <div className="main-right">
           <div className="form-controls">
@@ -86,8 +85,7 @@ function Login(props) {
           </div>
           <footer>Built by Anand & Christian</footer>
         </div>
-      </div>
-    </div>
+    </MainWrapper>
 
 
    
