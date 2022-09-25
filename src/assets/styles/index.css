@@ -41,5 +41,8 @@ body{
 }
 
 .form-controls{
-    padding-top: 35vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
 }
