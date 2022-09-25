@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiService from "../../services/api.service";
 import MainWrapper from "../../components/layout/MainWrapper";
+import MapWrapper from "../../components/map/MapWrapper";
 
 function Signup(props) {
   const [state, setState] = useState({ name: "", password: "", email: "" });
@@ -37,12 +38,12 @@ function Signup(props) {
 
     <MainWrapper>
 
-        <div className="main-left">Map</div>
+        <div className="main-left"><MapWrapper /></div>
         <div className="main-right">
           <div className="form-controls">
-          <form onSubmit={handleSubmit}>
-            <h1>Signup!</h1>
-            <div>
+          <form onSubmit={handleSubmit} className="auth-form">
+            <h1 className="auth-form__header">Create an account</h1>
+            <div  className="auth-form__email">
               <label htmlFor="signupFormName">Name</label>
               <input
                 type="text"
@@ -54,8 +55,8 @@ function Signup(props) {
               />
             </div>
 
-            <div>
-              <label htmlFor="signupFormEmail">E-mail Address</label>
+            <div  className="auth-form__email">
+              <label htmlFor="signupFormEmail">Email</label>
               <input
                 type="email"
                 name="email"
@@ -66,7 +67,7 @@ function Signup(props) {
               />
             </div>
 
-            <div>
+            <div  className="auth-form__password">
               <label htmlFor="signupFormPassword">Password</label>
               <input
                 type="password"
@@ -78,13 +79,13 @@ function Signup(props) {
               />
             </div>
 
-            <div>
-              <button type="submit">Signup!</button>
+              <div>
+                <button className="auth-form__btn" type="submit">Signup</button>
+              </div>
 
-              <Link to="/auth/login">
-                Already have an account? Click here to login.
+              <Link className="auth-form__link" to="/auth/login">
+                or, Login
               </Link>
-            </div>
           </form>
           </div>
           <footer>Built by Anand & Christian</footer>

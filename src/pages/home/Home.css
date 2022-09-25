@@ -1,0 +1,33 @@
+.search-form{
+    width: 75%
+}
+
+.search-form__search input{
+    width: 90%;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.2rem;
+    /* padding-left: 2rem; */
+}
+
+.search-form__search input:focus {
+	outline: none;
+}
+
+.search-form__btn{
+    background-color: #343434;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+
+}
+.search-form__btn :hover, .search-form__btn :active{
+    background-color: white;
+}
+
+.search-form__btn :focus{
+    outline: none;
+}

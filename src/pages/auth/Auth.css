@@ -1,0 +1,110 @@
+.auth-form{
+    width: 75%;
+}
+
+.auth-form__header{
+    color: #343434;
+}
+
+.auth-form__name{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form__name label{
+    width: 32%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+
+}
+
+.auth-form__name input {
+    border: none;
+    width: 68%;
+    font-size: 1.5rem;
+}
+
+.auth-form__name input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+}
+
+
+.auth-form__email{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form__email label{
+    width: 32%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+
+}
+
+.auth-form__email input {
+    border: none;
+    width: 68%;
+    font-size: 1.5rem;
+}
+
+.auth-form__email input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+	
+}
+
+.auth-form__password{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 1.5rem;
+
+}
+
+.auth-form__password label{
+    width: 32%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+}
+
+.auth-form__password input {
+    border: none;
+    width: 68%;
+    font-size: 1.5rem;
+}
+
+.auth-form__password input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+}
+
+.auth-form__btn{
+    background-color: #343434;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+
+}
+.auth-form__btn :hover, .auth-form__btn :active{
+    background-color: white;
+}
+
+.auth-form__btn :focus{
+    outline: none;
+}
+
+.auth-form__link{
+    color: #343434;
+    font-size: 1.2rem;
+}
+
+
+

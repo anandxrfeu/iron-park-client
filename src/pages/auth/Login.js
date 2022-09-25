@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import apiService from "../../services/api.service";
 import { AuthContext } from "../../contexts/authContext";
 import MainWrapper from "../../components/layout/MainWrapper";
+import MapWrapper from "../../components/map/MapWrapper";
+import './Auth.css'
 
 function Login(props) {
   const authContext = useContext(AuthContext);
@@ -45,13 +47,15 @@ function Login(props) {
   return (
 
     <MainWrapper>
-        <div className="main-left">Map</div>
+        <div className="main-left">
+          <MapWrapper/>
+        </div>
         <div className="main-right">
           <div className="form-controls">
-            <form onSubmit={handleSubmit}>
-              <h1>Login</h1>
-              <div>
-                <label htmlFor="signupFormEmail">E-mail Address</label>
+            <form onSubmit={handleSubmit} className="auth-form">
+              <h1 className="auth-form__header">Login</h1>
+              <div className="auth-form__email">
+                <label htmlFor="signupFormEmail">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -62,7 +66,7 @@ function Login(props) {
                 />
               </div>
 
-              <div>
+              <div className="auth-form__password">
                 <label htmlFor="signupFormPassword">Password</label>
                 <input
                   type="password"
@@ -74,13 +78,14 @@ function Login(props) {
                 />
               </div>
 
-              <div>
-                <button type="submit">Login!</button>
-
-                <Link to="/auth/signup">
-                  Don't have an account? Click here to signup!
-                </Link>
+              <div className="auth-form__cta">
+                <button  className="auth-form__btn" type="submit">Login</button>
               </div>
+              
+              <Link  className="auth-form__link" to="/auth/signup">
+                or, Signup!
+              </Link>
+              
              </form>
           </div>
           <footer>Built by Anand & Christian</footer>
