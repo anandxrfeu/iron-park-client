@@ -32,8 +32,13 @@ const Navbar = (props) => {
                         }
 
                         {isLoggedIn && (  
-                            <Link className="nav-link" to='/auth/login'><span id="nav-link-text">Hi, </span>{user.name}</Link>
+                            <>
+                            <Link className="nav-link" to='/user/profile'><span id="nav-link-text">Hi, </span>{user.name}</Link>
+                            <img className="nav-link-img" src={user.profileImageUrl} alt="profile"/>
+                            </>
                         )
+//<Link className="nav-link" to='/user/profile'><span id="nav-link-text">Hi, </span>{user.name}</Link>
+
                         }
 
                         {isLoggedIn && (  

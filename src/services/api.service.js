@@ -30,6 +30,21 @@ class ApiService {
     return await this.api.post("/users/login", user);
   }
 
+  async updateUserInfo(user) {
+    const res =  await this.api.patch("users/profile", user);
+    return res.data
+  }
+
+  async uploadFile(fileData){
+    const res = await this.api.post('/imageUpload', fileData)
+    return res.data
+  }
+
+  async deleteUser(){
+    const res = await this.api.delete('/users/profile')
+    return res.data
+  }
+
 
 }
 

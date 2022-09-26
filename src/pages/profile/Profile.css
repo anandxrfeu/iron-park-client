@@ -1,0 +1,135 @@
+.profile-form{
+    width: 75%;
+}
+
+.profile-form__header{
+    color: #343434;
+}
+
+.profile-form__name{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.profile-form__name label{
+    width: 32%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+
+}
+
+.profile-form__name input {
+    border: none;
+    width: 68%;
+    font-size: 1.5rem;
+}
+
+.profile-form__name input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+}
+
+
+.profile-form__email{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.profile-form__email label{
+    width: 32%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+
+}
+
+.profile-form__email input {
+    border: none;
+    width: 68%;
+    font-size: 1.5rem;
+}
+
+.profile-form__email input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+	
+}
+
+.profile-form__password{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 1.5rem;
+
+}
+
+.profile-form__password label{
+    width: 32%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+}
+
+.profile-form__password input {
+    border: none;
+    width: 68%;
+    font-size: 1.5rem;
+}
+
+.profile-form__password input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+}
+
+.profile-form__btns{
+    display: flex;
+    justify-content: space-evenly
+}
+
+.profile-form__btn{
+    background-color: #343434;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+
+}
+.profile-form__btn :hover, .profile-form__btn :active{
+    background-color: white;
+}
+
+.profile-form__btn :focus{
+    outline: none;
+}
+
+.profile-form__link{
+    color: #343434;
+    font-size: 1.2rem;
+}
+
+.btn_delete{
+    background: red;
+    color:white;
+}
+
+.profile-form__image {
+    margin-bottom: 2rem;
+
+}
+
+.profile-form__image img {
+    width: 15rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.profile-form__image  input {
+    width: 50%;
+    margin: 0 auto;
+}
+

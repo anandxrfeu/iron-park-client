@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import Signup from '../pages/auth/Signup'
 import Login from '../pages/auth/Login'
 import Container from "./layout/Container";
+import Profile from "../pages/profile/Profile";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path='signup' element={<Signup />} />
             <Route path='login' element={<Login />} />
           </Route>
+          <Route exact path="/user/profile" element={ <Profile />} />
         </Routes>
     </Container>
   );

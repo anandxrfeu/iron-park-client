@@ -47,3 +47,9 @@ p.nav-link{
     cursor: pointer;
 
 }
+
+.nav-link-img{
+    width: 2rem;
+    border-radius: 50%;
+    padding-left: 0.3rem;
+}
