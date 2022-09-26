@@ -22,7 +22,11 @@ const Profile = (props) => {
     const password = useRef()
 
     useEffect( () => {
-        setImageUrl(user.profileImageUrl)
+        if(user.profileImageUrl){
+            setImageUrl(user.profileImageUrl)
+        }else{
+            setImageUrl(profilePic)
+        }
     }, [user])
 
     const handleSubmit = async (event) => {
