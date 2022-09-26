@@ -29,13 +29,21 @@
     color: white;
 }
 
-.nav-links p{
+.nav-links{
+    display: flex;
     padding-right: 2rem;
-    color: white;
+    align-items: center;
     font-size: 1.5rem;
-    text-decoration: underline;
 }
 
-.nav-links a {
+.nav-link {
     color: white;
+    padding-left: 2rem;
+}
+
+
+p.nav-link{
+    text-decoration: underline;
+    cursor: pointer;
+
 }
