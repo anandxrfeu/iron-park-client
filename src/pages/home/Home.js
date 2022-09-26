@@ -3,6 +3,7 @@ import React from "react";
 import MainWrapper from "../../components/layout/MainWrapper";
 import MapWrapper from "../../components/map/MapWrapper";
 import './Home.css'
+import SearchIcon from '../../assets/images/magifying-glass.svg'
 
 function Home() {
 
@@ -15,10 +16,13 @@ function Home() {
           <div className="form-controls">
             <form className="search-form">
               <div className="search-form__search">
+                  <div className="search-form__icon">
+                    <img src={SearchIcon} alt="search-icon" />
+                  </div>
                   <input
                     type="search"
                     name="search"
-                    placeholder="Search..."
+                    placeholder="Search by street name ..."
                     // value={state.password}
                     // error={errors.password}
                     // onChange={handleChange}
