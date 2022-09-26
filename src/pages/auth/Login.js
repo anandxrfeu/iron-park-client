@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiService from "../../services/api.service";
 import { AuthContext } from "../../contexts/authContext";
@@ -9,38 +9,31 @@ import './Auth.css'
 function Login(props) {
   const authContext = useContext(AuthContext);
 
-  const [state, setState] = useState({ password: "", email: "" });
-  const [errors, setErrors] = useState({
-    email: null,
-    password: null,
-  });
+
+  const email = useRef();
+  const password = useRef()
 
   const navigate = useNavigate();
 
-  function handleChange(event) {
-    setState({
-      ...state,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
-  }
-
   async function handleSubmit(event) {
     event.preventDefault();
+    
+    const payload = {
+      email: email.current.value,
+      password: password.current.value
+    }
 
     try {
-      const response = await apiService.login(state);
+      const response = await apiService.login(payload);
       console.log(response);
-
       authContext.setLoggedInUser({ ...response.data });
       localStorage.setItem(
         "loggedInUser",
         JSON.stringify({ ...response.data })
       );
-      setErrors({ password: "", email: "" });
       navigate("/");
     } catch (err) {
       console.error(err);
-      setErrors({ ...err.response.data.errors });
     }
   }
 
@@ -60,9 +53,7 @@ function Login(props) {
                   type="email"
                   name="email"
                   id="signupFormEmail"
-                  value={state.email}
-                  error={errors.email}
-                  onChange={handleChange}
+                  ref={email}
                 />
               </div>
 
@@ -72,9 +63,7 @@ function Login(props) {
                   type="password"
                   name="password"
                   id="signupFormPassword"
-                  value={state.password}
-                  error={errors.password}
-                  onChange={handleChange}
+                  ref={password}
                 />
               </div>
 

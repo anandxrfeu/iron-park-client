@@ -22,7 +22,7 @@ function Home() {
                   <input
                     type="search"
                     name="search"
-                    placeholder="Search by street name ..."
+                    placeholder="Search by street name..."
                     // value={state.password}
                     // error={errors.password}
                     // onChange={handleChange}
