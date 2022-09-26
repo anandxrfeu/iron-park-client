@@ -1,36 +1,28 @@
-import React, { useState } from "react";
+import React, { useState , useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import apiService from "../../services/api.service";
 import MainWrapper from "../../components/layout/MainWrapper";
 import MapWrapper from "../../components/map/MapWrapper";
 
 function Signup(props) {
-  const [state, setState] = useState({ name: "", password: "", email: "" });
-  const [errors, setErrors] = useState({
-    name: null,
-    email: null,
-    password: null,
-  });
+  const name = useRef()
+  const email = useRef();
+  const password = useRef()
 
   const navigate = useNavigate();
 
-  function handleChange(event) {
-    setState({
-      ...state,
-      [event.currentTarget.name]: event.currentTarget.value,
-    });
-  }
-
   async function handleSubmit(event) {
     event.preventDefault();
-
+    const payload = {
+      name: name.current.value,
+      email: email.current.value,
+      password: password.current.value
+    }
     try {
-      await apiService.signUp(state);
-      setErrors({ name: "", password: "", email: "" });
+      await apiService.signUp(payload);
       navigate("/auth/login");
     } catch (err) {
       console.error(err);
-      setErrors({ ...err.response.data.errors });
     }
   }
 
@@ -49,9 +41,7 @@ function Signup(props) {
                 type="text"
                 name="name"
                 id="signupFormName"
-                value={state.name}
-                error={errors.name}
-                onChange={handleChange}
+                ref={name}
               />
             </div>
 
@@ -61,9 +51,7 @@ function Signup(props) {
                 type="email"
                 name="email"
                 id="signupFormEmail"
-                value={state.email}
-                error={errors.email}
-                onChange={handleChange}
+                ref={email}
               />
             </div>
 
@@ -73,9 +61,7 @@ function Signup(props) {
                 type="password"
                 name="password"
                 id="signupFormPassword"
-                value={state.password}
-                error={errors.password}
-                onChange={handleChange}
+                ref={password}
               />
             </div>
 
