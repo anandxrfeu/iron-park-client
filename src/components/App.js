@@ -7,6 +7,7 @@ import Container from "./layout/Container";
 import Profile from "../pages/profile/Profile";
 import { useState, useEffect } from "react";
 import apiService from "../services/api.service";
+import CreateReservation from "../pages/reservation/CreateReservation";
 
 
 function App() {
@@ -63,11 +64,16 @@ function App() {
                                               selectedParkingSpot={selectedParkingSpot}
                                           />} />
           </Route>
-          <Route exact path="/user/profile" element={ <Profile 
+          <Route  path="/user/profile" element={ <Profile 
                                               parkingList={parkingList}
                                               SelectparkingSpotHandler={SelectparkingSpotHandler}
                                               selectedParkingSpot={selectedParkingSpot}
-                                                      />} />
+                                          />} />
+          <Route  path="/make-reservation/:reservationId" element={ <CreateReservation 
+                                              parkingList={parkingList}
+                                              SelectparkingSpotHandler={SelectparkingSpotHandler}
+                                              selectedParkingSpot={selectedParkingSpot}
+                                          />} />
         </Routes>
       )}
         
