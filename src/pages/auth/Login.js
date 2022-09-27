@@ -8,7 +8,7 @@ import './Auth.css'
 
 function Login(props) {
   const authContext = useContext(AuthContext);
-
+  const {parkingList,SelectparkingSpotHandler,selectedParkingSpot } = props
 
   const email = useRef();
   const password = useRef()
@@ -40,7 +40,7 @@ function Login(props) {
 
     <MainWrapper>
         <div className="main-left">
-          <MapWrapper/>
+        <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} />
         </div>
         <div className="main-right">
           <div className="form-controls">

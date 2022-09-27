@@ -16,10 +16,6 @@ const MapWrapper = (props) => {
               mapStyle="mapbox://styles/mapbox/streets-v9"
             >
 
-
-
-
-
 {parkingList.map( parkingSpot => {
                             let selectedButtonClass= ''
                             if(parkingSpot._id === selectedParkingSpot){

@@ -51,10 +51,23 @@ function App() {
                                               selectedParkingSpot={selectedParkingSpot}
                                           />} />
           <Route path="/auth">
-            <Route path='signup' element={<Signup />} />
-            <Route path='login' element={<Login />} />
+            <Route path='signup' element={<Signup 
+                                              parkingList={parkingList}
+                                              SelectparkingSpotHandler={SelectparkingSpotHandler}
+                                              selectedParkingSpot={selectedParkingSpot}
+
+                                          />} />
+            <Route path='login' element={<Login 
+                                              parkingList={parkingList}
+                                              SelectparkingSpotHandler={SelectparkingSpotHandler}
+                                              selectedParkingSpot={selectedParkingSpot}
+                                          />} />
           </Route>
-          <Route exact path="/user/profile" element={ <Profile />} />
+          <Route exact path="/user/profile" element={ <Profile 
+                                              parkingList={parkingList}
+                                              SelectparkingSpotHandler={SelectparkingSpotHandler}
+                                              selectedParkingSpot={selectedParkingSpot}
+                                                      />} />
         </Routes>
       )}
         
