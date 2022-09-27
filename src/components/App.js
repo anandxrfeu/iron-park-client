@@ -69,7 +69,7 @@ function App() {
                                               SelectparkingSpotHandler={SelectparkingSpotHandler}
                                               selectedParkingSpot={selectedParkingSpot}
                                           />} />
-          <Route  path="/make-reservation/:reservationId" element={ <CreateReservation 
+          <Route  path="/make-reservation/:parkingSpotId" element={ <CreateReservation 
                                               parkingList={parkingList}
                                               SelectparkingSpotHandler={SelectparkingSpotHandler}
                                               selectedParkingSpot={selectedParkingSpot}

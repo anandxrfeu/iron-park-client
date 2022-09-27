@@ -4,6 +4,7 @@ import "./Reservation.css"
 import {useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext"
+import apiService from "../../services/api.service";
 
 
 const CreateReservation = (props) => {
@@ -49,11 +50,21 @@ const CreateReservation = (props) => {
 
   const {parkingSpotId} = useParams()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    const reservationPayload = {
+      licensePlateNumber : LicensePlate,
+      parkingDuration : parseInt(Duration),
+      parkingSpotId : parkingSpotId,  
+    }
+    try{
+      const reservation = await apiService.createReservation(reservationPayload)
+      await apiService.reserveParkingSpot(parkingSpotId, { "reserved": true})
+      navigate(`/reservation/${reservation._id}`)
+    }catch(err){
+      console.log(err)
+    }
   }
-
-    
 
     return(
         <MainWrapper>
@@ -62,7 +73,7 @@ const CreateReservation = (props) => {
         </div>
         <div className="main-right">
           <div className="form-controls">
-            <form className="reservation-form">
+            <form className="reservation-form" onSubmit={handleSubmit}> 
                 <h1 className="reservation-form__header">Parking Info</h1>
                 <div className="reservation-form__license">
                     <label>License</label>
@@ -74,7 +85,6 @@ const CreateReservation = (props) => {
                         value={LicensePlate}
                     />
                 </div>
-
                 <div className="reservation-form__driver-name">
                     <label >Driver</label>
                     <input
@@ -84,8 +94,6 @@ const CreateReservation = (props) => {
                             readOnly
                     />
                 </div>
-
-                
                 <div className="reservation-form__duration">
                     <label className="reservation-form-duration-label">Duration <br/> (mins)</label>
                     <div className="radio">
@@ -123,7 +131,6 @@ const CreateReservation = (props) => {
                             />15</label>
                     </div>
                 </div>
-
                 <button className='reservation-form__btn' type="submit">Confirm</button>
              </form>
           </div>

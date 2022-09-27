@@ -31,7 +31,7 @@ class ApiService {
   }
 
   async updateUserInfo(user) {
-    const res =  await this.api.patch("users/profile", user);
+    const res =  await this.api.patch("/users/profile", user);
     return res.data
   }
 
@@ -46,10 +46,19 @@ class ApiService {
   }
 
   async getAllParkingSpotsForArea(){
-    const res = await this.api.get('parkingspots?area=ironhack-SP')
+    const res = await this.api.get('/parkingspots?area=ironhack-SP')
     return res.data
   }
 
+  async reserveParkingSpot(id, payload){
+    const res = await this.api.patch(`/parkingspots/${id}`, payload)
+    return res.data
+  }
+
+  async createReservation(payload){
+    const res = await this.api.post('/reservations/', payload)
+    return res.data
+  }
 
 }
 
