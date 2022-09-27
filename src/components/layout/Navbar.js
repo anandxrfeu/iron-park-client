@@ -1,7 +1,7 @@
 import "./Navbar.css"
 import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
-import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
 
@@ -9,10 +9,13 @@ const Navbar = (props) => {
     const authContext = useContext(AuthContext);
     const isLoggedIn = authContext.loggedInUser.token !== ""
     const user = authContext.loggedInUser.user
+    const navigate = useNavigate();
+
 
     const logoutHandler = () => {
         localStorage.removeItem("loggedInUser")
         authContext.setLoggedInUser({ token: "", user: {} })
+        navigate("/auth/login");
     }
 
     return (
