@@ -45,6 +45,11 @@ class ApiService {
     return res.data
   }
 
+  async getAllParkingSpotsForArea(){
+    const res = await this.api.get('parkingspots?area=ironhack-SP')
+    return res.data
+  }
+
 
 }
 

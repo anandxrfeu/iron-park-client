@@ -4,18 +4,23 @@ import MainWrapper from "../../components/layout/MainWrapper";
 import MapWrapper from "../../components/map/MapWrapper";
 import './Home.css'
 import SearchIcon from '../../assets/images/magifying-glass.svg'
+import {Link} from "react-router-dom"
 
-function Home() {
+function Home(props) {
+
+  const {parkingList,SelectparkingSpotHandler,selectedParkingSpot } = props
+  const url =`/make-reservation/${selectedParkingSpot}`
 
   return (
     <MainWrapper>
         <div className="main-left">
-          <MapWrapper />
+          <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} />
         </div>
         <div className="main-right">
           <div className="form-controls">
+
             <form className="search-form">
-              <div className="search-form__search">
+              {/* <div className="search-form__search">
                   <div className="search-form__icon">
                     <img src={SearchIcon} alt="search-icon" />
                   </div>
@@ -23,14 +28,17 @@ function Home() {
                     type="search"
                     name="search"
                     placeholder="Search by street name..."
-                    // value={state.password}
-                    // error={errors.password}
-                    // onChange={handleChange}
                   />
-                </div>
+
+               </div> */}
+
+                
+            
 
               <div className="search-form__cta">
+              <Link to={url}>
                 <button  className="search-form__btn" type="submit">PARK</button>
+                </Link>
               </div>
             </form>
           </div>
