@@ -60,6 +60,11 @@ class ApiService {
     return res.data
   }
 
+  async getReservationInfo(id){
+    const res = await this.api.get(`/reservations/${id}`)
+    return res.data
+  }
+
 }
 
 export default new ApiService();

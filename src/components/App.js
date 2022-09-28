@@ -8,6 +8,7 @@ import Profile from "../pages/profile/Profile";
 import { useState, useEffect } from "react";
 import apiService from "../services/api.service";
 import CreateReservation from "../pages/reservation/CreateReservation";
+import Reservation from "../pages/reservation/Reservation";
 
 
 function App() {
@@ -70,6 +71,11 @@ function App() {
                                               selectedParkingSpot={selectedParkingSpot}
                                           />} />
           <Route  path="/make-reservation/:parkingSpotId" element={ <CreateReservation 
+                                              parkingList={parkingList}
+                                              SelectparkingSpotHandler={SelectparkingSpotHandler}
+                                              selectedParkingSpot={selectedParkingSpot}
+                                          />} />
+          <Route  path="/reservation/:reservationId" element={ <Reservation 
                                               parkingList={parkingList}
                                               SelectparkingSpotHandler={SelectparkingSpotHandler}
                                               selectedParkingSpot={selectedParkingSpot}
