@@ -8,13 +8,13 @@
     font-size: 2rem;
 }
 
-.reservation-form__field{
+.reservation-form__license{
     border-bottom: 1px black solid;
     display: flex;
     margin-bottom: 2rem;
 }
 
-.reservation-form__field label{
+.reservation-form__license label{
     width: 40%;
     text-align: left;
     font-size: 1.5rem;
@@ -22,17 +22,42 @@
 
 }
 
-.reservation-form__field input {
+.reservation-form__license input {
     border: none;
     width: 60%;
     font-size: 1.5rem;
 }
 
-.reservation-form__field input:focus {
+.reservation-form__license input:focus {
 	outline: none;
 	background: rgb(244, 244, 244);
 }
 
+
+.reservation-form__driver-name{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 2rem;}
+
+.reservation-form__driver-name label{
+    width: 40%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+
+}
+
+.reservation-form__driver-name input {
+    border: none;
+    width: 60%;
+    font-size: 1.5rem;
+}
+
+.reservation-form__driver-name input:focus {
+	outline: none;
+	background: rgb(244, 244, 244);
+	
+}
 
 .reservation-form__duration{
     /* border-bottom: 1px black solid; */
@@ -84,13 +109,6 @@
   }
   
 
-
-
-.reservation-form__btns{
-    display: flex;
-    justify-content: space-evenly
-}
-
 .reservation-form__btn{
     background-color: #343434;
     font-size: 1.5rem;
@@ -107,16 +125,7 @@
 
 .reservation-form__btn :focus{
     outline: none;
-}
-
-.reservation-form__link{
-    color: #343434;
-    font-size: 1.2rem;
-}
-
-.btn_delete{
-    background: red;
-    color:white;
+   
 }
 
 

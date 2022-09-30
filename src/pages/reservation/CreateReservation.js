@@ -1,6 +1,6 @@
 import MainWrapper from "../../components/layout/MainWrapper"
 import MapWrapper from "../../components/map/MapWrapper"
-import "./Reservation.css"
+import "./CreateReservation.css"
 import {useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext"

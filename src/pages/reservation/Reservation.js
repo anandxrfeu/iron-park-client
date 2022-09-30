@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import MainWrapper from "../../components/layout/MainWrapper"
 import MapWrapper from "../../components/map/MapWrapper"
 import apiService from "../../services/api.service"
-import { AuthContext } from "../../contexts/authContext"
+import "./Reservation.css"
 
 
 const Reservation = (props) => {
@@ -19,7 +19,9 @@ const Reservation = (props) => {
         
         const fetchData = async () =>{
             const reservationData = await apiService.getReservationInfo(reservationId)
-            console.log("reservationData -> ", reservationData)
+            reservationData.checkInTime = displayTime(reservationData.createdAt)
+            const checkInDate = new Date(reservationData.createdAt)
+            reservationData.checkOutTime = displayTime(checkInDate.getTime() + parseInt(reservationData.parkingDuration)*60000)
             setReservation(reservationData)
             setIsloading(false)
         }
@@ -27,6 +29,17 @@ const Reservation = (props) => {
         fetchData()
 
     }, [reservationId])
+
+
+    /** Move functions to utils */
+    function padTo2Digits(num) {
+        return String(num).padStart(2, '0');
+      }
+    
+    function displayTime (timestamp){
+        const time = new Date(timestamp)
+        return `${padTo2Digits(time.getHours())}:${padTo2Digits(time.getMinutes())}`
+    }
 
     return(
         <MainWrapper>
@@ -41,14 +54,54 @@ const Reservation = (props) => {
             <div className="form-controls">
             <form className="reservation-form">
                 <h1 className="reservation-form__header">Reservation</h1>
-                <div  className="reservation-form__driver-name">
-                <label htmlFor="name">Driver Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    defaultValue={reservation.userId.name}
-                />
+                <div  className="reservation-form__field">
+                    <label htmlFor="name">Driver Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        defaultValue={reservation.userId.name}
+                        readOnly
+
+                    />
                 </div>
+                
+                <div  className="reservation-form__field">
+                    <label htmlFor="name">License #</label>
+                    <input
+                        type="text"
+                        name="name"
+                        defaultValue={reservation.licensePlateNumber}
+                        readOnly
+
+                    />
+                </div>
+
+                <div  className="reservation-form__field">
+                    <label htmlFor="name">Check In</label>
+                    <input
+                        type="text"
+                        name="name"
+                        defaultValue={reservation.checkInTime}
+                        readOnly
+                    />
+                </div>
+
+                <div  className="reservation-form__field">
+                    <label htmlFor="name">Check Out</label>
+                    <input
+                        type="text"
+                        name="name"
+                        defaultValue={reservation.checkOutTime}
+                        readOnly
+
+                    />
+                </div>
+
+                <div className="reservation-form__btns">
+                    <button className="reservation-form__btn" type="button">Extend</button>
+                    <button className="reservation-form__btn" type="button">Checkout</button>
+                </div>
+
             </form>
           </div>
         )}
