@@ -1,0 +1,28 @@
+
+
+.reservation-data{
+    width: 75%;
+}
+
+.reservation-data__header{
+    color: #343434;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+}
+
+.reservation-data__field{
+    border-bottom: 1px black solid;
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.reservation-data__field label{
+    width: 40%;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #343434;
+
+}
+
+
+  

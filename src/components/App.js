@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import apiService from "../services/api.service";
 import CreateReservation from "../pages/reservation/CreateReservation";
 import Reservation from "../pages/reservation/Reservation";
+import PaymentSuccess from "../pages/payment/PaymentSucess";
 
 
 function App() {
@@ -38,7 +39,6 @@ function App() {
     setSelectedParkingSpot(event.target.id)
 
   }
-
 
   return (
     <Container>
@@ -80,6 +80,13 @@ function App() {
                                               SelectparkingSpotHandler={SelectparkingSpotHandler}
                                               selectedParkingSpot={selectedParkingSpot}
                                           />} />
+          {/* <Route  path="/payment" element={ <PaymentBox reservationData={reservationData}/>} /> */}
+          <Route  path="/payment-sucess/:reservationId" element={ <PaymentSuccess 
+                                              parkingList={parkingList}
+                                              SelectparkingSpotHandler={SelectparkingSpotHandler}
+                                              selectedParkingSpot={selectedParkingSpot}
+                                          />} />
+
         </Routes>
       )}
         

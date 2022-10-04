@@ -65,6 +65,21 @@ class ApiService {
     return res.data
   }
 
+  async extendReservation(id, payload){
+    const res = await this.api.patch(`reservations/${id}`, payload)
+    return res.data
+  }
+
+  async makePayment(payload){
+    const res = await this.api.post(`/create-payment-intent`, payload)
+    return res.data
+  }
+
+  async createCheckOutSession(payload){
+    const res = await this.api.post(`/create-checkout-session`, payload)
+    return res.data
+  }
+
 }
 
 export default new ApiService();

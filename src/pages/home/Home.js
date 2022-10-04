@@ -5,6 +5,8 @@ import MapWrapper from "../../components/map/MapWrapper";
 import './Home.css'
 import SearchIcon from '../../assets/images/magifying-glass.svg'
 import {Link} from "react-router-dom"
+import { AddressAutofill } from '@mapbox/search-js-react';
+
 
 function Home(props) {
 
@@ -20,20 +22,19 @@ function Home(props) {
           <div className="form-controls">
 
             <form className="search-form">
-              {/* <div className="search-form__search">
-                  <div className="search-form__icon">
+
+              <div className="search-form__search">
+                  {/* <div className="search-form__icon">
                     <img src={SearchIcon} alt="search-icon" />
                   </div>
                   <input
                     type="search"
                     name="search"
                     placeholder="Search by street name..."
-                  />
+                  /> */}
 
-               </div> */}
+               </div>
 
-                
-            
 
               <div className="search-form__cta">
               <Link to={url}>
@@ -41,6 +42,7 @@ function Home(props) {
                 </Link>
               </div>
             </form>
+
           </div>
           <footer>Built by Anand & Christian</footer>
         </div>
