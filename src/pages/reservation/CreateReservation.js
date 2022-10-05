@@ -49,7 +49,7 @@ const CreateReservation = (props) => {
     const reservationPayload = {
       licensePlateNumber : LicensePlate,
       parkingDuration : parseInt(Duration),
-      parkingSpotId : parkingSpotId,  
+      parkingSpot : parkingSpotId,  
     }
     try{
       const reservation = await apiService.createReservation(reservationPayload)

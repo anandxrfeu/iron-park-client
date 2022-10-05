@@ -55,6 +55,11 @@ class ApiService {
     return res.data
   }
 
+  async unReserveParkingSpot(id, payload){
+    const res = await this.api.patch(`/parkingspots/${id}`, payload)
+    return res.data
+  }
+
   async createReservation(payload){
     const res = await this.api.post('/reservations/', payload)
     return res.data
