@@ -19,7 +19,10 @@ const PaymentSuccess = (props) => {
     useEffect(()=>{
         const fetchData = async () =>{
             const reservationData = await apiService.getReservationInfo(reservationId)
-            apiService.unReserveParkingSpot(reservationData.parkingSpot._id, {reserved: false})
+            if(reservationData.parkingSpot.reserved){
+                apiService.unReserveParkingSpot(reservationData.parkingSpot._id, {reserved: false})
+
+            }
             reservationData.checkInTime = displayTime(reservationData.createdAt)
             const checkInDate = new Date(reservationData.createdAt)
             reservationData.checkOutTime = displayTime(checkInDate.getTime() + parseInt(reservationData.parkingDuration)*60000)
