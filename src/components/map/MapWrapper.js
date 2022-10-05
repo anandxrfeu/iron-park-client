@@ -8,12 +8,6 @@ const MapWrapper = (props) => {
   const {parkingList, SelectparkingSpotHandler, selectedParkingSpot, coordinates} = props
   const [initialState, setInitialState] = useState(coordinates)
 
-  
-  
-  console.log("in Map coordinates ", coordinates)
-  console.log("in Map parkingList ", parkingList)
-  console.log("in Map parkingList  is null?", parkingList.length === 0)
-  
   useEffect( () => {
     if(JSON.stringify(coordinates) !== JSON.stringify(initialState)){
         setInitialState(coordinates)

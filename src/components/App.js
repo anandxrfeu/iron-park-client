@@ -40,7 +40,6 @@ function App() {
   //   zoom: 18
   // })
 
-
   useEffect(()=>{
 
     const fetchData = async () => {
