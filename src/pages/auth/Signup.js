@@ -5,7 +5,7 @@ import MainWrapper from "../../components/layout/MainWrapper";
 import MapWrapper from "../../components/map/MapWrapper";
 
 function Signup(props) {
-  const {parkingList,SelectparkingSpotHandler,selectedParkingSpot } = props
+  const {parkingList,SelectparkingSpotHandler,selectedParkingSpot, coordinates , onSearch} = props
   const name = useRef()
   const email = useRef();
   const password = useRef()
@@ -32,7 +32,7 @@ function Signup(props) {
     <MainWrapper>
 
         <div className="main-left">
-           <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} />
+        <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} coordinates={coordinates}/>
         </div>
         <div className="main-right">
           <div className="form-controls">

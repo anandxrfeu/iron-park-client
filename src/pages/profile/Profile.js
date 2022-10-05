@@ -9,7 +9,7 @@ import apiService from "../../services/api.service";
 import profilePic from "../../assets/images/profile-pic.svg"
 
 const Profile = (props) => {
-    const {parkingList,SelectparkingSpotHandler,selectedParkingSpot } = props
+    const {parkingList,SelectparkingSpotHandler,selectedParkingSpot, coordinates , onSearch} = props
 
     const navigate = useNavigate();
     const authContext = useContext(AuthContext);
@@ -82,7 +82,7 @@ const Profile = (props) => {
     return (
         <MainWrapper>
         <div className="main-left">
-            <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} />
+        <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} coordinates={coordinates}/>
         </div>
         <div className="main-right">
           <div className="form-controls">

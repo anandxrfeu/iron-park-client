@@ -1,22 +1,38 @@
+import { useEffect, useState } from 'react';
 import Map, {Marker} from 'react-map-gl';
 import pin from "../../assets/images/pin.png"
 import "./MapWrapper.css"
 
 const MapWrapper = (props) => {
 
-  const {parkingList, SelectparkingSpotHandler, selectedParkingSpot} = props
+  const {parkingList, SelectparkingSpotHandler, selectedParkingSpot, coordinates} = props
+  const [initialState, setInitialState] = useState(coordinates)
+
+  
+  
+  console.log("in Map coordinates ", coordinates)
+  console.log("in Map parkingList ", parkingList)
+  console.log("in Map parkingList  is null?", parkingList.length === 0)
+  
+  useEffect( () => {
+    if(JSON.stringify(coordinates) !== JSON.stringify(initialState)){
+        setInitialState(coordinates)
+      }
+  } , [coordinates, initialState])
+
 
   return <Map
-              initialViewState={{
-                longitude: -46.6610803, 
-                latitude: -23.5617757,
-                zoom: 18
-              }}
+            //   initialViewState={{
+            //     longitude: -46.6610803, 
+            //     latitude: -23.5617757,
+            //     zoom: 18
+            //   }}
+              initialViewState={initialState}
               className="map-box"
               mapStyle="mapbox://styles/mapbox/streets-v9"
             >
 
-{parkingList.map( parkingSpot => {
+{parkingList.length !== 0 && parkingList.map( parkingSpot => {
                             let selectedButtonClass= ''
                             if(parkingSpot._id === selectedParkingSpot){
                                 selectedButtonClass = 'btnFocus'

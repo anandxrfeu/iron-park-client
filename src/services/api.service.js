@@ -45,8 +45,8 @@ class ApiService {
     return res.data
   }
 
-  async getAllParkingSpotsForArea(){
-    const res = await this.api.get('/parkingspots?area=ironhack-SP')
+  async getAllParkingSpots(latitude, longitude){
+    const res = await this.api.get(`/parkingspots?latitude=${latitude}&longitude=${longitude}`)
     return res.data
   }
 
@@ -83,6 +83,10 @@ class ApiService {
   async createCheckOutSession(payload){
     const res = await this.api.post(`/create-checkout-session`, payload)
     return res.data
+  }
+
+  async getGeocodedArea(searchText){
+    //
   }
 
 }

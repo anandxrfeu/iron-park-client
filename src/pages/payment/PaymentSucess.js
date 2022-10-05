@@ -7,11 +7,9 @@ import ReservationData from "../../components/reservation/ReservationData";
 import apiService from "../../services/api.service";
 import "./PaymentSuccess.css"
 
-//payment-sucess
-
 const PaymentSuccess = (props) => {
     
-    const {parkingList,SelectparkingSpotHandler,selectedParkingSpot } = props
+    const {parkingList,SelectparkingSpotHandler,selectedParkingSpot, coordinates , onSearch} = props
     const [isLoading, setIsloading] = useState(true) 
     const {reservationId} = useParams()
     const [reservation, setReservation] = useState({})
@@ -46,7 +44,7 @@ function displayTime (timestamp){
         <MainWrapper>
 
         <div className="main-left">
-           <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} />
+        <MapWrapper  parkingList={parkingList}  SelectparkingSpotHandler={SelectparkingSpotHandler} selectedParkingSpot={selectedParkingSpot} coordinates={coordinates}/>
         </div>
 
         <div className="main-right">
